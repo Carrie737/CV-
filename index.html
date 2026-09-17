@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#eeefeb">
-  <meta name="description"
-        content="Jiayi Zhong — education, publications and projects across economics, arts, technology and business.">
-  <title>Jiayi Zhong | Education, Research & Projects</title>
+    <meta name="description"
+      content="钟家沂-INTRO">
+    <title>钟家沂｜教育、研究与项目</title>
 
   <style>
     :root {
@@ -21,9 +21,9 @@
       --sand-light: #e7e2d9;
       --header: 88px;
       --footer: 84px;
-      --serif: Georgia, "Times New Roman", serif;
-      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI",
-              Arial, sans-serif;
+            --serif: "Noto Serif SC", "Songti SC", SimSun, Georgia, serif;
+            --sans: "Noto Sans SC", "PingFang SC", "Microsoft YaHei",
+              -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
     * { box-sizing: border-box; }
@@ -71,7 +71,7 @@
     h1, h2 {
       font-family: var(--serif);
       font-weight: 400;
-      letter-spacing: -.045em;
+      letter-spacing: 0;
     }
 
     h2 {
@@ -93,8 +93,7 @@
       color: var(--muted);
       font-size: 12px;
       font-weight: 600;
-      letter-spacing: .17em;
-      text-transform: uppercase;
+      letter-spacing: .08em;
     }
 
     .small {
@@ -493,15 +492,30 @@
       font-size: 14px;
     }
 
+    .publication-link a,
     .publication-link button {
       border: 0;
       padding: 0;
-      text-decoration: underline;
-      text-underline-offset: 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--blue);
+      font-weight: 600;
       font-size: 14px;
+      line-height: inherit;
+      text-align: left;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+      transition: color .2s ease, gap .2s ease;
     }
 
-    .publication-link button:hover { background: transparent; }
+    .publication-link a:hover,
+    .publication-link button:hover {
+      background: transparent;
+      color: var(--ink);
+      gap: 9px;
+    }
 
     .two-columns {
       display: grid;
@@ -1184,94 +1198,93 @@
 <body class="reading no-js">
 
   <header class="site-header">
-    <button class="brand" data-step="0" aria-label="Go to introduction">
+    <button class="brand" data-step="0" aria-label="返回首页">
       <span class="monogram">JZ</span>
-      <span class="brand-name">JIAYI ZHONG<br>SELECTED WORK & STUDY</span>
+      <span class="brand-name">钟家沂<br>精选作品与学习经历</span>
     </button>
 
-    <nav class="primary-nav" aria-label="Featured sections">
-      <button data-step="1">Education</button>
-      <button data-step="2">Publications</button>
-      <button data-step="4">Projects</button>
+    <nav class="primary-nav" aria-label="主要章节">
+      <button data-step="1">教育背景</button>
+      <button data-step="2">研究与发表</button>
+      <button data-step="4">项目与领导力</button>
     </nav>
 
     <div class="toolbar">
       <button id="motion"
               type="button"
               aria-pressed="false"
-              title="Turn reduced motion on or off">
-        Reduce motion
+                title="开启或关闭减少动态效果">
+              减少动态
       </button>
 
       <button id="read"
               type="button"
               aria-pressed="false"
-              aria-label="Switch to continuous reading">
-        Read
+                aria-label="切换至连续阅读">
+              阅读
       </button>
 
       <button id="openContents"
               type="button"
               aria-haspopup="dialog">
-        Chapters ↗
+        章节总览 ↗
       </button>
     </div>
   </header>
 
   <noscript>
     <p class="no-js-note">
-      You are viewing the continuous reading version.
-      Enable JavaScript for animated navigation and interactive charts.
+      当前为连续阅读模式。
+      启用 JavaScript 可使用动态导航与交互式图表。
     </p>
   </noscript>
 
-  <main id="stage" aria-label="Jiayi Zhong interactive portfolio">
+  <main id="stage" aria-label="钟家沂互动式个人简历">
     <div id="world">
 
-      <!-- 01 / INTRODUCTION -->
+      <!-- 01 / 首页 -->
       <section class="scene"
                id="about"
-               data-title="Introduction"
+               data-title="首页"
                aria-labelledby="aboutTitle">
 
         <div class="hero-layout">
           <div>
-            <p class="eyebrow">Education · Research · Projects</p>
+            <p class="eyebrow">教育 · 研究 · 项目</p>
 
             <h1 id="aboutTitle" class="hero-title">
-              JIAYI
-              <span>ZHONG</span>
+              钟家沂
             </h1>
 
             <p class="hero-intro">
-              A foundation in business economics.<br>
-              Further study in arts, technology and business.
+              以商务经济学为基础<br>
+              延伸至艺术、科技与商业的学习。
             </p>
 
             <p class="small">
-              Art-market research, digital analysis and an
-              art-oriented platform concept.
+              艺术市场研究、数字分析，<br>
+              以及艺术社交平台概念。
             </p>
 
             <div class="hero-links">
               <button class="solid-button" data-step="1">
-                Explore the portfolio <span aria-hidden="true">↗</span>
+                探索个人履历 <span aria-hidden="true">↗</span>
               </button>
               <button class="text-button" data-step="2">
-                Read the publications
+                阅读研究发表
               </button>
             </div>
           </div>
 
           <div>
-            <p class="eyebrow">A few starting points</p>
+            <p class="eyebrow">从这里开始</p>
 
             <div class="hero-index">
               <button class="index-row" data-step="1">
                 <span class="index-number">01</span>
                 <span>
-                  <strong>Economics → Arts & Technology</strong>
-                  <small>Shanghai Business School · Lingnan University</small>
+                  <strong>经济学 → 艺术与科技</strong>
+                  <small>上海商学院 · 岭南大学</small>
                 </span>
                 <span aria-hidden="true">↗</span>
               </button>
@@ -1279,8 +1292,8 @@
               <button class="index-row" data-step="2">
                 <span class="index-number">02</span>
                 <span>
-                  <strong>Published articles</strong>
-                  <small>Art Market · January 2023 & May 2025</small>
+                  <strong>研究发表</strong>
+                  <small>《艺术市场》· 2023 年 1 月与 2025 年 5 月</small>
                 </span>
                 <span aria-hidden="true">↗</span>
               </button>
@@ -1288,270 +1301,256 @@
               <button class="index-row" data-step="4">
                 <span class="index-number">03</span>
                 <span>
-                  <strong>Art Social Platform</strong>
-                  <small>Project leadership · Concept development</small>
+                  <strong>艺术社交平台</strong>
+                  <small>项目负责人 · 概念开发</small>
                 </span>
                 <span aria-hidden="true">↗</span>
               </button>
             </div>
 
             <p class="hero-note">
-              Use the arrows or chapter menu to explore.
-              On a phone, swipe horizontally between chapters.
+              使用箭头或章节菜单浏览。<br>
+              手机上可横向滑动切换章节。
             </p>
           </div>
         </div>
       </section>
 
-      <!-- 02 / EDUCATION -->
+      <!-- 02 / 教育背景 -->
       <section class="scene"
                id="education"
-               data-title="Education"
+               data-title="教育背景"
                aria-labelledby="educationTitle">
 
-        <p class="eyebrow">01 / Education</p>
+        <p class="eyebrow">01 / 教育背景</p>
 
         <div class="section-heading">
-          <h2 id="educationTitle">An interdisciplinary<br>foundation.</h2>
+          <h2 id="educationTitle">跨学科的<br>学习基础</h2>
           <p>
-            Business economics, followed by postgraduate study
-            connecting the arts with technology and commercial practice.
+            以商务经济学为起点，继续探索艺术、科技与商业实践之间的连接。
           </p>
         </div>
 
         <div class="education-list">
           <article class="education-card">
             <div class="education-date">
-              Aug. 2026 – Jun. 2027
-              <strong>Expected graduation</strong>
+              2026 年 8 月 – 2027 年 6 月
+              <strong>预计毕业</strong>
             </div>
 
             <div>
-              <h3>Lingnan University</h3>
+              <h3>岭南大学 <span class="muted">(Lingnan University)</span></h3>
               <p class="degree">
-                Master of Science in Arts Technology and Business
+                艺术科技与商业理学硕士
                 <span class="muted">(MScATB)</span>
               </p>
-              <div class="location">Hong Kong SAR</div>
+              <div class="location">中国香港</div>
 
               <ul class="course-list">
-                <li>Accounting and Finance for Arts Industry</li>
-                <li>Art Finance and Technology</li>
-                <li>History of Chinese and Western Art</li>
-                <li>Design Thinking and Creativity</li>
-                <li>Interactive Arts and Technology</li>
-                <li>From AI to NFTs</li>
+                <li>艺术产业会计与金融</li>
+                <li>艺术金融与科技</li>
+                <li>中西方艺术史</li>
+                <li>设计思维与创意</li>
+                <li>互动艺术与科技</li>
+                <li>从人工智能到 NFTs</li>
               </ul>
             </div>
           </article>
 
           <article class="education-card">
-            <div class="education-date">Sep. 2019 – Jun. 2023</div>
+            <div class="education-date">2019 年 9 月 – 2023 年 6 月</div>
 
             <div>
-              <h3>Shanghai Business School</h3>
-              <p class="degree">Bachelor of Economics, Business Economics</p>
-              <div class="location">Shanghai, China</div>
+              <h3>上海商学院 <span class="muted">(Shanghai Business School)</span></h3>
+              <p class="degree">经济学学士（商务经济学）</p>
+              <div class="location">中国上海</div>
 
               <div class="score-row">
-                <span>Average score</span>
+                <span>平均成绩</span>
                 <strong>85.29 <span class="small">/ 100</span></strong>
                 <div class="score-track" aria-hidden="true"><span></span></div>
               </div>
 
               <p class="small" style="margin: 12px 0 0;">
-                Core courses: Macroeconomics, Microeconomics,
-                Statistical Methods.
+                核心课程：宏观经济学、微观经济学、统计方法。
               </p>
             </div>
           </article>
 
           <article class="education-card">
-            <div class="education-date">Jan. 2022</div>
+            <div class="education-date">2022 年 1 月</div>
 
             <div>
-              <h3>York University</h3>
+              <h3>约克大学 <span class="muted">(York University)</span></h3>
               <p class="degree">
-                Innovation, Strategic Management and Global Leadership
-                Training Programme
+                创新、战略管理与全球领导力培训项目
               </p>
-              <div class="location">Toronto, Canada · Online</div>
+              <div class="location">加拿大多伦多 · 线上</div>
               <p class="small" style="margin: 8px 0 0;">
-                Certificate in Strategic Leadership and Innovation
+                战略领导力与创新证书
               </p>
             </div>
           </article>
         </div>
       </section>
 
-      <!-- 03 / PUBLICATIONS -->
+      <!-- 03 / 研究与发表 -->
       <section class="scene"
                id="publications"
-               data-title="Publications"
+               data-title="研究与发表"
                aria-labelledby="publicationsTitle">
 
-        <p class="eyebrow">02 / Research & Publications</p>
+        <p class="eyebrow">02 / 研究与发表</p>
 
         <div class="section-heading">
-          <h2 id="publicationsTitle">Reading the market<br>through its records.</h2>
+          <h2 id="publicationsTitle">从市场记录中<br>阅读艺术</h2>
           <p>
-            Two articles in <em>Art Market</em>, examining an artist’s
-            auction history and the changing practices of auction houses.
+            两篇发表于《艺术市场》的文章，分别考察艺术家的拍卖历史与拍卖行经营方式的变化。
           </p>
         </div>
 
         <div class="publication-grid">
           <article class="publication-card">
             <div class="publication-meta">
-              <span>May 2025 · <em>Art Market</em></span>
-              <span class="author-role">First author</span>
+              <span>2025 年 5 月 · <em>《艺术市场》</em></span>
+              <span class="author-role">第一作者</span>
             </div>
 
             <h3>
-              She Is Unmistakably Herself: An Analysis of the Auction
-              Market for Berthe Morisot’s Works
+              《她分明是她自己——莫里索作品的拍卖市场分析》
             </h3>
 
             <p>
-              Analysed historical auction catalogues and market-price
-              data to trace the auction performance of Berthe Morisot’s
-              works from the 1960s to the 21st century.
+              分析历史拍卖图录与市场价格数据，追踪贝尔特·莫里索作品自 20 世纪 60 年代至 21 世纪的拍卖表现。
             </p>
 
             <p>
-              Compared media, auction houses, geographic markets and
-              price trends to examine changes in the market recognition
-              of her works.
+              比较不同媒介、拍卖行、地域市场及价格趋势，考察其作品市场认可度的变化。
             </p>
 
             <div class="publication-link">
               <a href="https://morisot-art-market.hoiyeungkan.chatgpt.site/"
                  target="_blank"
-                 rel="noopener noreferrer">
-                Explore the interactive article ↗
+                 rel="noopener noreferrer"
+                  title="打开莫里索作品拍卖市场互动文章"
+                 aria-label="探索贝尔特·莫里索拍卖市场互动文章">
+                探索互动文章 <span aria-hidden="true">↗</span>
               </a>
             </div>
           </article>
 
           <article class="publication-card">
             <div class="publication-meta">
-              <span>January 2023 · <em>Art Market</em></span>
-              <span class="author-role">Third author</span>
+              <span>2023 年 1 月 · <em>《艺术市场》</em></span>
+              <span class="author-role">第三作者</span>
             </div>
 
             <h3>
-              Those Green-Cover Auction Catalogues of the 1960s–1970s
+              《那些 1960—1970 年代的绿皮拍卖图录》
             </h3>
 
             <p>
-              Examined 159 historical auction catalogues from Sotheby’s
-              and Christie’s: 108 from Sotheby’s and 51 from Christie’s.
+              研究苏富比与佳士得共 159 本历史拍卖图录，其中苏富比 108 本、佳士得 51 本。
             </p>
 
             <p>
-              Analysed catalogue design, auction rules, commission
-              structures and pricing information to explore changes
-              in auction-house practices and the development of the
-              modern art auction market.
+              分析图录设计、拍卖规则、佣金结构及价格信息，探讨拍卖行经营方式的演变与现代艺术拍卖市场的发展。
             </p>
 
             <div class="publication-link">
-              <button data-step="3">Explore the research sample ↗</button>
+              <button data-step="3" aria-label="查看研究样本">
+                查看研究样本 <span aria-hidden="true">↗</span>
+              </button>
             </div>
           </article>
         </div>
       </section>
 
-      <!-- 04 / RESEARCH DATA -->
+      <!-- 04 / 研究样本 -->
       <section class="scene"
                id="research"
-               data-title="Research sample"
+               data-title="研究样本"
                aria-labelledby="researchTitle">
 
         <div class="two-columns">
           <div>
-            <p class="eyebrow">03 / A closer look at the research</p>
-            <h2 id="researchTitle">159 catalogues.<br>A record of change.</h2>
+            <p class="eyebrow">03 / 深入研究</p>
+            <h2 id="researchTitle">159 本图录<br>一份变化记录</h2>
 
             <p>
-              The co-authored study of green-cover auction catalogues
-              draws on materials from two auction houses in the
-              1960s–1970s.
+              这项关于绿皮拍卖图录的合作研究，使用了 1960—1970 年代两家拍卖行的资料。
             </p>
 
             <ul class="research-topics">
-              <li><span>01</span> Catalogue design</li>
-              <li><span>02</span> Auction rules</li>
-              <li><span>03</span> Commission structures</li>
-              <li><span>04</span> Pricing information</li>
+              <li><span>01</span> 图录设计</li>
+              <li><span>02</span> 拍卖规则</li>
+              <li><span>03</span> 佣金结构</li>
+              <li><span>04</span> 价格信息</li>
             </ul>
 
             <p class="small">
-              Source: research sample reported in the supplied CV,
-              for “Those Green-Cover Auction Catalogues of the
-              1960s–1970s”, <em>Art Market</em>, January 2023.
+              来源：简历中所列研究样本；对应《那些 1960—1970 年代的绿皮拍卖图录》，《艺术市场》，2023 年 1 月。
             </p>
           </div>
 
           <div class="chart-panel">
-            <h3>Composition of the catalogue sample</h3>
-            <p class="small">Select an auction house to inspect its contribution.</p>
+            <h3>图录样本构成</h3>
+            <p class="small">选择拍卖行，查看其样本占比。</p>
 
             <div class="segmented"
                  role="group"
-                 aria-label="Focus on an auction house">
-              <button data-house="all" aria-pressed="true">All catalogues</button>
-              <button data-house="sothebys" aria-pressed="false">Sotheby’s</button>
-              <button data-house="christies" aria-pressed="false">Christie’s</button>
+                  aria-label="选择拍卖行">
+                <button data-house="all" aria-pressed="true">全部图录</button>
+                <button data-house="sothebys" aria-pressed="false">苏富比</button>
+                <button data-house="christies" aria-pressed="false">佳士得</button>
             </div>
 
             <div id="catalogueNumber" class="catalogue-number">159</div>
-            <span id="catalogueLabel">historical auction catalogues</span>
+            <span id="catalogueLabel">本历史拍卖图录</span>
 
             <div class="catalogue-bar"
                  role="group"
-                 aria-label="108 Sotheby's catalogues and 51 Christie's catalogues">
+                 aria-label="108 本苏富比图录与 51 本佳士得图录">
               <button class="catalogue-segment"
                       data-house="sothebys"
-                      aria-label="Sotheby's: 108 catalogues, 67.9 percent of the sample"
+                      aria-label="苏富比：108 本图录，占样本 67.9%"
                       aria-pressed="false">
-                <small>Sotheby’s</small>
+                <small>苏富比</small>
                 <strong>108</strong>
                 <span>67.9%</span>
               </button>
 
               <button class="catalogue-segment"
                       data-house="christies"
-                      aria-label="Christie's: 51 catalogues, 32.1 percent of the sample"
+                      aria-label="佳士得：51 本图录，占样本 32.1%"
                       aria-pressed="false">
-                <small>Christie’s</small>
+                <small>佳士得</small>
                 <strong>51</strong>
                 <span>32.1%</span>
               </button>
             </div>
 
-            <p class="small">Share of the 159-catalogue sample.</p>
+            <p class="small">占 159 本图录样本的比例。</p>
 
             <p id="catalogueNote" class="chart-note" aria-live="polite">
-              The study examined 108 Sotheby’s and 51 Christie’s
-              catalogues from the 1960s–1970s.
+              研究样本包括 1960—1970 年代苏富比的 108 本图录与佳士得的 51 本图录。
             </p>
 
             <details class="data-details">
-              <summary>View the underlying data</summary>
+              <summary>查看详细数据</summary>
               <table>
-                <caption class="sr-only">Catalogue sample by auction house</caption>
+                <caption class="sr-only">按拍卖行划分的图录样本</caption>
                 <thead>
                   <tr>
-                    <th scope="col">Auction house</th>
-                    <th scope="col">Catalogues</th>
-                    <th scope="col">Share</th>
+                    <th scope="col">拍卖行</th>
+                    <th scope="col">图录数量</th>
+                    <th scope="col">占比</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr><th scope="row">Sotheby’s</th><td>108</td><td>67.9%</td></tr>
-                  <tr><th scope="row">Christie’s</th><td>51</td><td>32.1%</td></tr>
-                  <tr><th scope="row">Total</th><td>159</td><td>100%</td></tr>
+                  <tr><th scope="row">苏富比</th><td>108</td><td>67.9%</td></tr>
+                  <tr><th scope="row">佳士得</th><td>51</td><td>32.1%</td></tr>
+                  <tr><th scope="row">合计</th><td>159</td><td>100%</td></tr>
                 </tbody>
               </table>
             </details>
@@ -1559,96 +1558,92 @@
         </div>
       </section>
 
-      <!-- 05 / PROJECTS -->
+      <!-- 05 / 项目与领导力 -->
       <section class="scene"
                id="projects"
-               data-title="Projects"
+               data-title="项目与领导力"
                aria-labelledby="projectsTitle">
 
         <div class="two-columns">
           <div>
-            <p class="eyebrow">04 / Entrepreneurship & Leadership</p>
-            <h2 id="projectsTitle">Bringing art,<br>people and ideas<br>together.</h2>
+            <p class="eyebrow">04 / 创业与领导力</p>
+            <h2 id="projectsTitle">让艺术、<br>人与想法<br>彼此连接</h2>
 
             <p>
-              Project leadership in an art-oriented platform concept,
-              alongside campus roles in event organisation and culture.
+              负责艺术社交平台概念项目，同时参与校园活动组织与文化建设。
             </p>
 
             <div class="leadership">
               <div class="leadership-item">
-                <h3>Head of Event Organization Department</h3>
-                <p>SBS Business Economics Association</p>
+                <h3>活动组织部部长</h3>
+                <p>上海商学院商务经济学协会</p>
               </div>
 
               <div class="leadership-item">
-                <h3>Head of Campus Culture Department</h3>
-                <p>SBS Student Union</p>
+                <h3>校园文化部部长</h3>
+                <p>上海商学院学生会</p>
               </div>
             </div>
           </div>
 
           <article class="project-card">
-            <span class="project-role">Project Leader</span>
-            <h3>Art Social Platform</h3>
+            <span class="project-role">项目负责人</span>
+            <h3>艺术社交平台</h3>
 
             <p class="small">
-              8th China International College Students’ “Internet+”
-              Innovation and Entrepreneurship Competition
+              第八届中国国际“互联网+”大学生创新创业大赛
             </p>
 
             <p>
-              Developed an art-oriented platform concept combining
-              cultural content, user engagement and business-model thinking.
+              构建融合文化内容、用户互动与商业模式思维的艺术类平台概念。
             </p>
 
-            <div class="project-pillars" aria-label="Three elements of the platform concept">
+            <div class="project-pillars" aria-label="平台概念的三个组成部分">
               <div class="pillar">
                 <span>01</span>
-                <strong>Cultural<br>content</strong>
+                <strong>文化<br>内容</strong>
               </div>
               <div class="pillar">
                 <span>02</span>
-                <strong>User<br>engagement</strong>
+                <strong>用户<br>互动</strong>
               </div>
               <div class="pillar">
                 <span>03</span>
-                <strong>Business-model<br>thinking</strong>
+                <strong>商业模式<br>思维</strong>
               </div>
             </div>
           </article>
         </div>
       </section>
 
-      <!-- 06 / EXPERIENCE -->
+      <!-- 06 / 专业经历 -->
       <section class="scene"
                id="experience"
-               data-title="Experience"
+               data-title="专业经历"
                aria-labelledby="experienceTitle">
 
-        <p class="eyebrow">05 / Professional Experience</p>
+        <p class="eyebrow">05 / 专业经历</p>
 
         <div class="section-heading">
-          <h2 id="experienceTitle">Practice across<br>different contexts.</h2>
+          <h2 id="experienceTitle">在不同场景中<br>积累实践</h2>
           <p>
-            Auction operations, digital research, communication
-            and project coordination.
+            覆盖艺术品拍卖运营、数字研究、沟通传播与项目协调。
           </p>
         </div>
 
         <div class="experience-layout">
           <aside>
-            <p class="small">Assembly Global · Digital-performance research</p>
+            <p class="small">Assembly Global · 数字表现研究</p>
 
             <div class="experience-metrics">
               <div class="experience-metric">
                 <strong>3,000+</strong>
-                <p>Data points structured during a four-month study.</p>
+                <p>四个月研究期间整理的数据点。</p>
               </div>
 
               <div class="experience-metric">
                 <strong>500+</strong>
-                <p>Media items monitored per day.</p>
+                <p>每日监测的媒体信息。</p>
               </div>
             </div>
           </aside>
@@ -1656,30 +1651,21 @@
           <div class="experience-list">
             <details class="job">
               <summary>
-                <strong>Shanghai Auction Co., Ltd.</strong>
+                <strong>上海拍卖有限公司</strong>
                 <span class="job-summary">
-                  Artwork Department Intern · Shanghai<br>
-                  Dec. 2021 – Jan. 2022
+                  艺术品部实习生 · 中国上海<br>
+                  2021 年 12 月 – 2022 年 1 月
                 </span>
               </summary>
               <ul>
                 <li>
-                  Supported the preparation and on-site execution of
-                  art auctions and previews, including exhibition
-                  installation, lot information organisation and
-                  showroom coordination.
+                  支持艺术品拍卖及预展的前期筹备与现场执行，包括展陈布置、拍品信息整理及展厅协调。
                 </li>
                 <li>
-                  Introduced artworks and guided visitors during auction
-                  events, developing first-hand understanding of client
-                  engagement, art presentation and the commercial
-                  operation of the auction market.
+                  在拍卖活动期间进行艺术品介绍与观众引导，深入了解客户沟通、艺术呈现及拍卖市场的商业运作。
                 </li>
                 <li>
-                  Handled post-auction documentation and archival work,
-                  gaining practical exposure to auction records,
-                  artwork information management and market-facing
-                  operations.
+                  负责拍卖后文档整理与归档，积累拍卖记录、艺术品信息管理及市场业务流程的实务经验。
                 </li>
               </ul>
             </details>
@@ -1688,95 +1674,64 @@
               <summary>
                 <strong>Assembly Global</strong>
                 <span class="job-summary">
-                  Digital Marketing Intern · Shanghai<br>
-                  Aug. 2022 – Dec. 2022
+                  数字营销实习生 · 中国上海<br>
+                  2022 年 8 月 – 2022 年 12 月
                 </span>
               </summary>
               <ul>
                 <li>
-                  Conducted a four-month digital-performance study for
-                  clients and competitors, collecting and structuring
-                  3,000+ data points on brand mentions, audience
-                  engagement and public sentiment.
+                  开展为期 4 个月的客户及竞品数字表现研究，收集并结构化整理 3,000+ 条品牌提及、受众互动及公众情绪等数据。
                 </li>
                 <li>
-                  Performed daily media monitoring, data collection and
-                  analysis with a monitoring volume of 500+ items per
-                  day, translating quantitative findings into concise
-                  project insights.
+                  负责日常媒体监测、数据收集与分析，单日监测量 500+ 条，并将量化结果提炼为简明的项目洞察。
                 </li>
                 <li>
-                  Contributed to a digital-promotion project for
-                  vulnerable communities and coordinated with community
-                  organisations serving senior and disabled groups,
-                  building experience in audience research and
-                  social-impact communication.
+                  参与面向弱势群体的数字推广项目，并与服务老年人及残障人士的社区组织协调合作，积累受众研究与社会影响传播经验。
                 </li>
               </ul>
             </details>
 
             <details class="job">
               <summary>
-                <strong>Peanuts Network</strong>
+                <strong>Peanuts Network（花生网络）</strong>
                 <span class="job-summary">
-                  Office Administration Intern · Guangzhou<br>
-                  Jun. 2023 – May 2024
+                  行政实习生 · 中国广州<br>
+                  2023 年 6 月 – 2024 年 5 月
                 </span>
               </summary>
               <ul>
                 <li>
-                  Supported recruitment and organisational initiatives
-                  by analysing departmental hiring needs, developing
-                  candidate profiles and coordinating cross-functional
-                  communication.
+                  通过分析各部门招聘需求、构建人才画像及协调跨部门沟通，支持招聘与组织管理相关工作。
                 </li>
                 <li>
-                  Organised internal communication programmes centred
-                  on diversity, equity and inclusion, and coordinated
-                  stakeholders to ensure effective programme implementation.
+                  组织以多元、公平与包容（DEI）为主题的内部沟通项目，并协调相关方推动项目有效落地。
                 </li>
                 <li>
-                  Assisted with administrative processes and policy-related
-                  information management, strengthening project coordination,
-                  documentation and stakeholder communication skills.
+                  协助行政流程及政策信息管理，积累项目协调、文档管理及利益相关方沟通经验。
                 </li>
               </ul>
             </details>
 
             <details class="job">
               <summary>
-                <strong>Xiayue Education</strong>
+                <strong>夏越教育</strong>
                 <span class="job-summary">
-                  Overseas Study Application & Operations Support · Guangzhou<br>
-                  May 2024 – Jul. 2026
+                  留学申请与运营支持 · 中国广州<br>
+                  2024 年 5 月 – 2026 年 7 月
                 </span>
               </summary>
               <ul>
                 <li>
-                  Managed end-to-end applications for Hong Kong and
-                  Singapore programmes, covering document review,
-                  online submission, admissions follow-up and
-                  pre-arrival arrangements; supported 50+ student cases
-                  across postgraduate and doctoral applications.
+                  负责香港及新加坡项目的全流程申请，涵盖材料审核、网申提交、录取跟进及行前安排；累计支持 50+ 名学生的硕士及博士申请。
                 </li>
                 <li>
-                  Prepared and refined application materials including
-                  personal statements, CVs and recommendation letters,
-                  translating students’ academic, research and professional
-                  experience into programme-specific narratives.
+                  撰写并优化个人陈述、简历及推荐信等申请材料，将学生的学术、科研及职业经历转化为与目标项目匹配的申请叙事。
                 </li>
                 <li>
-                  Supported social-media operations on WeChat and
-                  Xiaohongshu, developing education-focused promotional
-                  copy and content while strengthening audience-oriented
-                  communication and brand presentation.
+                  参与微信、小红书等社交媒体运营，撰写留学教育类推广文案及内容，强化面向用户的沟通与品牌呈现。
                 </li>
                 <li>
-                  Coordinated internal operations through application
-                  tracking, contract/document management, financial
-                  reporting and regular progress meetings, ensuring
-                  deadlines and cross-functional tasks were delivered
-                  efficiently.
+                  通过申请进度跟踪、合同及文档管理、财务报表与定期进度会议协调内部运营，确保关键节点与跨部门任务高效完成。
                 </li>
               </ul>
             </details>
@@ -1784,65 +1739,64 @@
         </div>
       </section>
 
-      <!-- 07 / HONORS, SKILLS & CONTACT -->
+      <!-- 07 / 荣誉、技能与联系 -->
       <section class="scene"
                id="contact"
-               data-title="Skills & Contact"
+               data-title="荣誉、技能与联系"
                aria-labelledby="contactTitle">
 
-        <p class="eyebrow">06 / Honors, Skills & Contact</p>
+        <p class="eyebrow">06 / 荣誉、技能与联系</p>
 
         <div class="section-heading">
-          <h2 id="contactTitle">Further details.</h2>
+          <h2 id="contactTitle">更多信息</h2>
           <p>
-            Academic recognition, languages and the tools
-            used across study and work.
+            学术荣誉、语言能力，以及学习与工作中使用的工具。
           </p>
         </div>
 
         <div class="contact-grid">
           <div>
-            <h3>Honors</h3>
+            <h3>荣誉</h3>
 
             <div class="honor-row">
               <span>2023</span>
-              <p>Outstanding Graduate of Shanghai Business School</p>
+              <p>上海商学院优秀毕业生</p>
             </div>
 
             <div class="honor-row">
               <span>2020–2021</span>
-              <p>Outstanding Student Leader<br>Merit Student Award</p>
+              <p>优秀学生干部<br>三好学生</p>
             </div>
 
             <div class="honor-row">
               <span>2019–2020</span>
-              <p>Second-prize Scholarship</p>
+              <p>校级二等奖学金</p>
             </div>
 
             <div class="honor-row">
-              <span>4 awards</span>
-              <p>Third-prize Scholarship</p>
+              <span>4 次</span>
+              <p>校级三等奖学金</p>
             </div>
           </div>
 
           <div>
-            <h3>Languages</h3>
+            <h3>语言</h3>
 
             <div class="language-row">
-              <strong>English</strong>
-              <span>IELTS 6.5 · CET4 & CET6</span>
+              <strong>英语</strong>
+              <span>雅思 6.5 · 大学英语四、六级</span>
             </div>
             <div class="language-row">
-              <strong>Cantonese</strong>
-              <span>Native</span>
+              <strong>粤语</strong>
+              <span>母语</span>
             </div>
             <div class="language-row">
-              <strong>Mandarin</strong>
-              <span>Native</span>
+              <strong>普通话</strong>
+              <span>母语</span>
             </div>
 
-            <h3 style="margin-top: 27px;">Technical skills</h3>
-            <ul class="tags" aria-label="Technical skills">
+            <h3 style="margin-top: 27px;">技术技能</h3>
+            <ul class="tags" aria-label="技术技能">
               <li>Microsoft Office</li>
               <li>Power BI</li>
               <li>STATA</li>
@@ -1851,7 +1805,7 @@
           </div>
 
           <div class="contact-block">
-            <p class="eyebrow">Jiayi Zhong</p>
+            <p class="eyebrow">钟家沂</p>
             <a class="email" href="mailto:zjy17825495865@163.com">
               zjy17825495865@163.com
             </a>
@@ -1863,20 +1817,20 @@
     </div>
   </main>
 
-  <nav class="footer-nav" aria-label="Portfolio navigation">
+  <nav class="footer-nav" aria-label="简历导航">
     <div class="chapter-status">
       <span id="counter">01 / 07</span>
-      <span id="chapterName">Introduction</span>
+      <span id="chapterName">首页</span>
     </div>
 
-    <div class="progress-nav" aria-label="Jump to a chapter">
-      <button data-step="0" aria-label="Introduction"></button>
-      <button data-step="1" aria-label="Education"></button>
-      <button data-step="2" aria-label="Publications"></button>
-      <button data-step="3" aria-label="Research sample"></button>
-      <button data-step="4" aria-label="Projects"></button>
-      <button data-step="5" aria-label="Experience"></button>
-      <button data-step="6" aria-label="Skills and contact"></button>
+    <div class="progress-nav" aria-label="跳转至章节">
+      <button data-step="0" aria-label="首页"></button>
+      <button data-step="1" aria-label="教育背景"></button>
+      <button data-step="2" aria-label="研究与发表"></button>
+      <button data-step="3" aria-label="研究样本"></button>
+      <button data-step="4" aria-label="项目与领导力"></button>
+      <button data-step="5" aria-label="专业经历"></button>
+      <button data-step="6" aria-label="荣誉、技能与联系"></button>
     </div>
 
     <div class="arrow-buttons">
@@ -1887,38 +1841,38 @@
 
   <dialog id="contents" aria-labelledby="contentsTitle">
     <div class="contents-heading">
-      <h2 id="contentsTitle">Explore the chapters.</h2>
-      <button id="closeContents" aria-label="Close chapter menu">×</button>
+      <h2 id="contentsTitle">浏览章节。</h2>
+      <button id="closeContents" aria-label="关闭章节菜单">×</button>
     </div>
 
     <div class="contents-grid">
       <button data-step="0">
-        <span>01</span><strong>Introduction</strong>
-        <small>An overview of education, research and projects.</small>
+        <span>01</span><strong>首页</strong>
+        <small>教育、研究与项目概览。</small>
       </button>
       <button data-step="1">
-        <span>02</span><strong>Education</strong>
-        <small>Business economics, arts, technology and leadership.</small>
+        <span>02</span><strong>教育背景</strong>
+        <small>商务经济学、艺术、科技与领导力。</small>
       </button>
       <button data-step="2">
-        <span>03</span><strong>Publications</strong>
-        <small>Two articles published in Art Market.</small>
+        <span>03</span><strong>研究与发表</strong>
+        <small>发表于《艺术市场》的两篇文章。</small>
       </button>
       <button data-step="3">
-        <span>04</span><strong>Research sample</strong>
-        <small>Explore the composition of 159 auction catalogues.</small>
+        <span>04</span><strong>研究样本</strong>
+        <small>查看 159 本拍卖图录的样本构成。</small>
       </button>
       <button data-step="4">
-        <span>05</span><strong>Projects</strong>
-        <small>Art Social Platform and campus leadership.</small>
+        <span>05</span><strong>项目与领导力</strong>
+        <small>艺术社交平台与校园领导力。</small>
       </button>
       <button data-step="5">
-        <span>06</span><strong>Experience</strong>
-        <small>Auction operations, digital research and coordination.</small>
+        <span>06</span><strong>专业经历</strong>
+        <small>艺术品拍卖运营、数字研究与项目协调。</small>
       </button>
       <button data-step="6">
-        <span>07</span><strong>Skills & Contact</strong>
-        <small>Honors, languages, tools and contact details.</small>
+        <span>07</span><strong>荣誉、技能与联系</strong>
+        <small>荣誉、语言、工具与联系方式。</small>
       </button>
     </div>
   </dialog>
@@ -1997,7 +1951,7 @@
         });
 
         q("#status").textContent =
-          `${current + 1} of ${slides.length}: ${slides[current].dataset.title}`;
+          `第 ${current + 1} / ${slides.length} 章：${slides[current].dataset.title}`;
       }
 
       function layout() {
@@ -2121,13 +2075,13 @@
         body.classList.toggle("presentation", !reading);
 
         q("#read").setAttribute("aria-pressed", String(reading));
-        q("#read").textContent = reading ? "Canvas" : "Read";
+        q("#read").textContent = reading ? "画布" : "阅读";
 
         q("#read").setAttribute(
           "aria-label",
           reading
-            ? "Switch to canvas view"
-            : "Switch to continuous reading"
+            ? "切换至画布视图"
+            : "切换至连续阅读"
         );
 
         layout();
@@ -2280,22 +2234,22 @@
         });
       }
 
-      // The sample composition comes directly from the supplied CV.
+      // 样本构成直接来自简历中列出的研究。
       const houses = {
         all: [
           "159",
-          "historical auction catalogues",
-          "The study examined 108 Sotheby’s and 51 Christie’s catalogues from the 1960s–1970s."
+          "本历史拍卖图录",
+          "研究样本包括 1960—1970 年代苏富比的 108 本图录与佳士得的 51 本图录。"
         ],
         sothebys: [
           "108",
-          "Sotheby’s catalogues · 67.9%",
-          "Sotheby’s catalogues represent 108 of the 159 catalogues in this co-authored study."
+          "本苏富比图录 · 67.9%",
+          "苏富比图录占这项合作研究 159 本样本中的 108 本。"
         ],
         christies: [
           "51",
-          "Christie’s catalogues · 32.1%",
-          "Christie’s catalogues represent 51 of the 159 catalogues in this co-authored study."
+          "本佳士得图录 · 32.1%",
+          "佳士得图录占这项合作研究 159 本样本中的 51 本。"
         ]
       };
 
