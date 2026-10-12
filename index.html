@@ -1193,6 +1193,7 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="cv-enhancements.css">
 </head>
 
 <body class="reading no-js">
@@ -1249,70 +1250,25 @@
                aria-labelledby="aboutTitle">
 
         <div class="hero-layout">
-          <div>
+          <div class="hero-copy">
             <p class="eyebrow">教育 · 研究 · 项目</p>
-
-            <h1 id="aboutTitle" class="hero-title">
-              钟家沂
-            </h1>
-
-            <p class="hero-intro">
-              以商务经济学为基础<br>
-              延伸至艺术、科技与商业的学习。
-            </p>
-
-            <p class="small">
-              艺术市场研究、数字分析，<br>
-              以及艺术社交平台概念。
-            </p>
-
+            <h1 id="aboutTitle" class="hero-title">钟家沂</h1>
+            <p class="hero-intro">以商务经济学为基础，<br>探索艺术、科技与商业的连接。</p>
+            <p class="small">关注艺术市场研究与数字分析，<br>也尝试将研究转化为艺术社交平台的构想。</p>
             <div class="hero-links">
-              <button class="solid-button" data-step="1">
-                探索个人履历 <span aria-hidden="true">↗</span>
-              </button>
-              <button class="text-button" data-step="2">
-                阅读研究发表
-              </button>
+              <button class="solid-button" data-step="1">探索个人履历 <span aria-hidden="true">↗</span></button>
+              <button class="text-button" data-step="2">阅读研究发表 <span aria-hidden="true">↗</span></button>
+            </div>
+            <div class="hero-index" aria-label="精选内容">
+              <button class="index-row" data-step="1"><span class="index-number">01</span><span><strong>经济学 → 艺术与科技</strong><small>上海商学院 · 岭南大学</small></span><span aria-hidden="true">↗</span></button>
+              <button class="index-row" data-step="2"><span class="index-number">02</span><span><strong>从历史图录到艺术市场</strong><small>《艺术市场》· 两篇研究发表</small></span><span aria-hidden="true">↗</span></button>
+              <button class="index-row" data-step="4"><span class="index-number">03</span><span><strong>“艺”拍即合</strong><small>艺术社交平台 · 共同发起人</small></span><span aria-hidden="true">↗</span></button>
             </div>
           </div>
-
-          <div>
-            <p class="eyebrow">从这里开始</p>
-
-            <div class="hero-index">
-              <button class="index-row" data-step="1">
-                <span class="index-number">01</span>
-                <span>
-                  <strong>经济学 → 艺术与科技</strong>
-                  <small>上海商学院 · 岭南大学</small>
-                </span>
-                <span aria-hidden="true">↗</span>
-              </button>
-
-              <button class="index-row" data-step="2">
-                <span class="index-number">02</span>
-                <span>
-                  <strong>研究发表</strong>
-                  <small>《艺术市场》· 2023 年 1 月与 2025 年 5 月</small>
-                </span>
-                <span aria-hidden="true">↗</span>
-              </button>
-
-              <button class="index-row" data-step="4">
-                <span class="index-number">03</span>
-                <span>
-                  <strong>艺术社交平台</strong>
-                  <small>项目负责人 · 概念开发</small>
-                </span>
-                <span aria-hidden="true">↗</span>
-              </button>
-            </div>
-
-            <p class="hero-note">
-              使用箭头或章节菜单浏览。<br>
-              手机上可横向滑动切换章节。
-            </p>
-          </div>
+          <figure class="portrait-figure">
+            <div class="portrait-frame image-reveal"><img src="assets/life-photo.jpg" width="1280" height="1707" alt="钟家沂在展厅中观看艺术装置的生活照" fetchpriority="high"></div>
+            <figcaption><span>在艺术现场，保持好奇。</span><span>PERSONAL NOTE / 01</span></figcaption>
+          </figure>
         </div>
       </section>
 
@@ -1429,10 +1385,10 @@
             </p>
 
             <div class="publication-link">
-              <a href="https://morisot-art-market.hoiyeungkan.chatgpt.site/"
+              <a href="articles/morisot/index.html"
                  target="_blank"
                  rel="noopener noreferrer"
-                  title="打开莫里索作品拍卖市场互动文章"
+                  title="打开本地莫里索作品拍卖市场互动文章"
                  aria-label="探索贝尔特·莫里索拍卖市场互动文章">
                 探索互动文章 <span aria-hidden="true">↗</span>
               </a>
@@ -1458,8 +1414,8 @@
             </p>
 
             <div class="publication-link">
-              <button data-step="3" aria-label="查看研究样本">
-                查看研究样本 <span aria-hidden="true">↗</span>
+              <button data-step="3" aria-label="查看绿皮拍卖图录研究详情" data-detail>
+                走进图录研究 <span aria-hidden="true">↗</span>
               </button>
             </div>
           </article>
@@ -1469,33 +1425,42 @@
       <!-- 04 / 研究样本 -->
       <section class="scene"
                id="research"
-               data-title="研究样本"
+               data-title="绿皮图录研究"
                aria-labelledby="researchTitle">
 
-        <div class="two-columns">
+        <div class="section-heading research-heading">
+          <div><p class="eyebrow">03 / 研究档案 · 2023</p><h2 id="researchTitle">绿皮图录里的<br>拍卖市场线索</h2></div>
+          <p>《那些 1960—1970 年代的绿皮拍卖图录》<br><span class="small">窦莉梅、郑珞萱、钟家沂 · 第三作者<br>《艺术市场》2023 年 1 月，38–43 页</span></p>
+        </div>
+        <div class="two-columns research-layout">
           <div>
-            <p class="eyebrow">03 / 深入研究</p>
-            <h2 id="researchTitle">159 本图录<br>一份变化记录</h2>
-
-            <p>
-              这项关于绿皮拍卖图录的合作研究，使用了 1960—1970 年代两家拍卖行的资料。
-            </p>
-
-            <ul class="research-topics">
-              <li><span>01</span> 图录设计</li>
-              <li><span>02</span> 拍卖规则</li>
-              <li><span>03</span> 佣金结构</li>
-              <li><span>04</span> 价格信息</li>
-            </ul>
-
-            <p class="small">
-              来源：简历中所列研究样本；对应《那些 1960—1970 年代的绿皮拍卖图录》，《艺术市场》，2023 年 1 月。
-            </p>
+            <p>以苏富比与佳士得的 <strong>159 本历史拍卖图录</strong>为材料，比较封面、拍品说明、收费条款与价目表，观察拍卖行如何组织信息、服务买卖双方，并调整经营方式。</p>
+            <figure class="archive-figure"><div class="image-reveal"><img src="assets/green-catalogues.jpg" width="1100" height="540" alt="论文中的佳士得图录封面与拍卖价目表" loading="lazy"></div><figcaption>图录封面与价目表 · 原文第 39 页</figcaption></figure>
+            <div class="research-tabs" role="tablist" aria-label="研究视角">
+              <button id="tab-records" role="tab" aria-selected="true" aria-controls="panel-records" tabindex="0">图录与记录</button>
+              <button id="tab-rules" role="tab" aria-selected="false" aria-controls="panel-rules" tabindex="-1">费用与规则</button>
+              <button id="tab-insights" role="tab" aria-selected="false" aria-controls="panel-insights" tabindex="-1">市场与启示</button>
+            </div>
+            <div class="research-panel" id="panel-records" role="tabpanel" aria-labelledby="tab-records" tabindex="0">
+              <h3>从一本图录，读出一场交易</h3>
+              <p>封面记录拍卖主题、日期与时间；内页列出作者、材质、尺寸及作品来源。所附价目表还保留英镑与美元成交价、买方姓名和整场成交总额，为追踪作品流转与收藏网络提供线索。</p>
+              <p class="small">“绿皮”并非完全相同的绿色：样本中的佳士得封面有多种绿色系，苏富比则多为橄榄绿色。简洁的设计背后，是相对完整的信息组织。</p>
+            </div>
+            <div class="research-panel" id="panel-rules" role="tabpanel" aria-labelledby="tab-rules" tabindex="0" hidden>
+              <h3>收费条款，也是经营方式的记录</h3>
+              <p>研究比较卖方佣金、估值、上门咨询和图录订阅费用。例如，1971 年苏富比绘画及其他艺术品的卖方佣金按成交价分为三档：低于 £500 为 15%，£500–£10,000 为 12.5%，高于 £10,000 为 10%。</p>
+              <p class="small">图录也记录货币制度、竞价幅度与税务要求的调整。这里呈现的是论文中的历史规则，用来理解当时的拍卖经营。</p>
+            </div>
+            <div class="research-panel" id="panel-insights" role="tabpanel" aria-labelledby="tab-insights" tabindex="0" hidden>
+              <h3>从纸质档案，走向信息共享</h3>
+              <p>办事处地址的变化呈现国际化扩张；拍品类别与价格记录则帮助观察市场结构。文章进一步讨论：图录从简洁信息载体走向故事化呈现，再在数字技术与成本控制下回归实用。</p>
+              <p class="small">电子化提高了获取拍品信息的便利，但买方与价格资料也可能进入付费市场。历史图录因此保留了研究艺术市场的重要信息，也启发了后续平台的数据库构想。</p>
+            </div>
+            <a class="source-link" href="assets/green-catalogues-article.pdf" target="_blank" rel="noopener">阅读论文原文 <span aria-hidden="true">↗</span></a>
           </div>
-
           <div class="chart-panel">
             <h3>图录样本构成</h3>
-            <p class="small">选择拍卖行，查看其样本占比。</p>
+            <p class="small">选择拍卖行，查看图录数量与样本占比。</p>
 
             <div class="segmented"
                  role="group"
@@ -1530,7 +1495,7 @@
               </button>
             </div>
 
-            <p class="small">占 159 本图录样本的比例。</p>
+            <p class="small">图录本数占比，不等同于拍卖场次或市场份额。</p>
 
             <p id="catalogueNote" class="chart-note" aria-live="polite">
               研究样本包括 1960—1970 年代苏富比的 108 本图录与佳士得的 51 本图录。
@@ -1564,65 +1529,70 @@
                data-title="项目与领导力"
                aria-labelledby="projectsTitle">
 
-        <div class="two-columns">
+        <div class="two-columns project-overview">
           <div>
-            <p class="eyebrow">04 / 创业与领导力</p>
-            <h2 id="projectsTitle">让艺术、<br>人与想法<br>彼此连接</h2>
-
-            <p>
-              负责艺术社交平台概念项目，同时参与校园活动组织与文化建设。
-            </p>
-
+            <p class="eyebrow">04 / 项目 · 从研究到构想</p>
+            <h2 id="projectsTitle">让艺术、人与想法<br>彼此连接</h2>
+            <p>作为共同发起人，参与“艺”拍即合艺术社交平台概念项目，将历史图录研究延伸到艺术内容共享、艺术家展示与社群交流的产品构想。</p>
+            <p class="small">第八届中国国际“互联网+”大学生创新创业大赛<br>高教主赛道 · 本科生创意组</p>
+            <div class="project-context"><span>研究起点</span><p>历史拍卖信息有研究价值，却分散在纸质图录中；本土小众艺术家也需要更持续的展示和交流渠道。</p></div>
             <div class="leadership">
-              <div class="leadership-item">
-                <h3>活动组织部部长</h3>
-                <p>上海商学院商务经济学协会</p>
-              </div>
-
-              <div class="leadership-item">
-                <h3>校园文化部部长</h3>
-                <p>上海商学院学生会</p>
-              </div>
+              <div class="leadership-item"><h3>活动组织部部长</h3><p>上海商学院商务经济学协会</p></div>
+              <div class="leadership-item"><h3>校园文化部部长</h3><p>上海商学院学生会</p></div>
             </div>
           </div>
-
-          <article class="project-card">
-            <span class="project-role">项目负责人</span>
-            <h3>艺术社交平台</h3>
-
-            <p class="small">
-              第八届中国国际“互联网+”大学生创新创业大赛
-            </p>
-
-            <p>
-              构建融合文化内容、用户互动与商业模式思维的艺术类平台概念。
-            </p>
-
-            <div class="project-pillars" aria-label="平台概念的三个组成部分">
-              <div class="pillar">
-                <span>01</span>
-                <strong>文化<br>内容</strong>
-              </div>
-              <div class="pillar">
-                <span>02</span>
-                <strong>用户<br>互动</strong>
-              </div>
-              <div class="pillar">
-                <span>03</span>
-                <strong>商业模式<br>思维</strong>
-              </div>
-            </div>
+          <article class="project-card focus-card">
+            <span class="project-role">共同发起人 · 创意项目</span>
+            <h3 data-shared="project">“艺”拍即合</h3>
+            <p class="project-tagline">寻找与你一拍即合的艺术作品。</p>
+            <p>以图录数据库为起点，连接本土艺术家、收藏者与艺术爱好者，探索艺术传播、社群互动与交易服务相结合的平台。</p>
+            <div class="project-pillars"><div class="pillar"><span>01</span><strong>图录<br>数据库</strong></div><div class="pillar"><span>02</span><strong>小众艺术<br>展示</strong></div><div class="pillar"><span>03</span><strong>交流与<br>交易</strong></div></div>
+            <button class="solid-button project-entry" data-step="5" data-detail>查看用户与功能 <span aria-hidden="true">↗</span></button>
+            <a class="source-link" href="assets/art-platform-plan.pdf" target="_blank" rel="noopener">阅读项目计划书 ↗</a>
           </article>
         </div>
       </section>
 
-      <!-- 06 / 专业经历 -->
+
+      <section class="scene" id="platform-design" data-title="平台 · 用户与功能" aria-labelledby="platformDesignTitle">
+        <div class="section-heading"><div><p class="eyebrow">05 / 项目档案 · 用户与功能</p><h2 id="platformDesignTitle" data-shared="project">“艺”拍即合</h2></div><p>让资料可查，让艺术可见，<br>让有共同兴趣的人相遇。</p></div>
+        <div class="platform-layout">
+          <div>
+            <div class="audience-strip" aria-label="目标用户"><span>专业收藏者</span><span>小众艺术社群</span><span>非遗爱好者</span></div>
+            <div class="feature-grid">
+              <article class="feature-card focus-card"><span class="feature-number">01 / ARCHIVE</span><h3>拍卖图录数据库</h3><p>规划整理历史拍品、成交价格、买方及流转记录，为研究者提供可追溯的艺术市场资料。</p></article>
+              <article class="feature-card focus-card"><span class="feature-number">02 / DISCOVER</span><h3>小众艺术与非遗展示</h3><p>通过艺术家专栏、作品介绍、主题展览与访谈，让创作背景和文化价值获得更充分的呈现。</p></article>
+              <article class="feature-card focus-card"><span class="feature-number">03 / CONNECT</span><h3>艺术交流社群</h3><p>连接艺术家、收藏者与经纪人，围绕创作日常、观展体验和策展内容展开交流，积累持续的兴趣关系。</p></article>
+              <article class="feature-card focus-card"><span class="feature-number">04 / COLLECT</span><h3>艺术品交易服务</h3><p>探索明码售卖、线上拍卖、定制约稿与藏品转售，将内容发现与进一步收藏连接起来。</p></article>
+            </div>
+          </div>
+          <figure class="prototype-figure"><div class="image-reveal"><img src="assets/platform-artists.jpg" width="650" height="812" alt="项目计划书中的艺术家展示页面概念稿" loading="lazy"></div><figcaption>艺术家展示页面 · 计划书第 24 页<br>原始概念稿</figcaption></figure>
+        </div>
+        <div class="chapter-actions"><button class="text-button" data-step="4" data-detail>← 返回项目概览</button><button class="text-button" data-step="6" data-detail>运营与商业模式 <span aria-hidden="true">↗</span></button></div>
+      </section>
+
+      <section class="scene" id="platform-model" data-title="平台 · 运营与商业模式" aria-labelledby="platformModelTitle">
+        <div class="section-heading"><div><p class="eyebrow">06 / 项目档案 · 运营与商业模式</p><h2 id="platformModelTitle">从资料共享<br>到艺术社群</h2></div><p>计划书将发展路径分为三个阶段，<br>逐步连接内容、创作者与收藏需求。</p></div>
+        <div class="roadmap-grid">
+          <article class="roadmap-card focus-card"><span class="feature-number">01 / 资料与信任</span><h3>以数据库切入</h3><p>整理历史图录与作品流转信息，面向专业研究者和拍卖从业者提供资料入口，结合艺术知识内容建立初期认知。</p><span class="roadmap-key">图录数字化 · 专业内容</span></article>
+          <article class="roadmap-card focus-card"><span class="feature-number">02 / 创作者与内容</span><h3>引入本土艺术家</h3><p>规划艺术家专栏、作品故事和线上展览，结合非遗内容与主题策划，帮助创作者积累可持续的展示和交流机会。</p><span class="roadmap-key">艺术家展示 · 主题策划</span></article>
+          <article class="roadmap-card focus-card"><span class="feature-number">03 / 社群与连接</span><h3>形成互动网络</h3><p>通过创作分享和社群运营吸引主动参与，再与中小拍卖行连接，探索作品展示、收藏与正式拍卖之间的路径。</p><span class="roadmap-key">兴趣社群 · 拍卖行连接</span></article>
+        </div>
+        <div class="model-grid">
+          <article><p class="eyebrow">商业模式构想</p><h3>会员 + 交易服务</h3><p>以订阅制会员、产品分级定价和交易佣金探索收入来源；通过网站、App 与微信小程序覆盖不同使用场景。</p></article>
+          <article><p class="eyebrow">内容与获客构想</p><h3>专业资料 + 社交传播</h3><p>结合图录资料、艺术知识与创作者内容，规划公众号、小红书、短视频等传播渠道，将内容关注延伸为平台参与。</p></article>
+        </div>
+        <p class="source-note">以上为创意组项目计划书中的产品与运营规划。<a href="assets/art-platform-plan.pdf#page=20" target="_blank" rel="noopener">查看计划书：产品概述、发展阶段与营销策略 ↗</a></p>
+        <div class="chapter-actions"><button class="text-button" data-step="5" data-detail>← 用户与功能</button><button class="text-button" data-step="7">继续浏览专业经历 <span aria-hidden="true">↗</span></button></div>
+      </section>
+
+      <!-- 08 / 专业经历 -->
       <section class="scene"
                id="experience"
                data-title="专业经历"
                aria-labelledby="experienceTitle">
 
-        <p class="eyebrow">05 / 专业经历</p>
+        <p class="eyebrow">07 / 专业经历</p>
 
         <div class="section-heading">
           <h2 id="experienceTitle">在不同场景中<br>积累实践</h2>
@@ -1745,7 +1715,7 @@
                data-title="荣誉、技能与联系"
                aria-labelledby="contactTitle">
 
-        <p class="eyebrow">06 / 荣誉、技能与联系</p>
+        <p class="eyebrow">08 / 荣誉、技能与联系</p>
 
         <div class="section-heading">
           <h2 id="contactTitle">更多信息</h2>
@@ -1819,19 +1789,11 @@
 
   <nav class="footer-nav" aria-label="简历导航">
     <div class="chapter-status">
-      <span id="counter">01 / 07</span>
+      <span id="counter">01 / 09</span>
       <span id="chapterName">首页</span>
     </div>
 
-    <div class="progress-nav" aria-label="跳转至章节">
-      <button data-step="0" aria-label="首页"></button>
-      <button data-step="1" aria-label="教育背景"></button>
-      <button data-step="2" aria-label="研究与发表"></button>
-      <button data-step="3" aria-label="研究样本"></button>
-      <button data-step="4" aria-label="项目与领导力"></button>
-      <button data-step="5" aria-label="专业经历"></button>
-      <button data-step="6" aria-label="荣誉、技能与联系"></button>
-    </div>
+    <div class="progress-nav" aria-label="跳转至章节"></div>
 
     <div class="arrow-buttons">
       <button id="previous" aria-label="Previous chapter">←</button>
@@ -1845,36 +1807,7 @@
       <button id="closeContents" aria-label="关闭章节菜单">×</button>
     </div>
 
-    <div class="contents-grid">
-      <button data-step="0">
-        <span>01</span><strong>首页</strong>
-        <small>教育、研究与项目概览。</small>
-      </button>
-      <button data-step="1">
-        <span>02</span><strong>教育背景</strong>
-        <small>商务经济学、艺术、科技与领导力。</small>
-      </button>
-      <button data-step="2">
-        <span>03</span><strong>研究与发表</strong>
-        <small>发表于《艺术市场》的两篇文章。</small>
-      </button>
-      <button data-step="3">
-        <span>04</span><strong>研究样本</strong>
-        <small>查看 159 本拍卖图录的样本构成。</small>
-      </button>
-      <button data-step="4">
-        <span>05</span><strong>项目与领导力</strong>
-        <small>艺术社交平台与校园领导力。</small>
-      </button>
-      <button data-step="5">
-        <span>06</span><strong>专业经历</strong>
-        <small>艺术品拍卖运营、数字研究与项目协调。</small>
-      </button>
-      <button data-step="6">
-        <span>07</span><strong>荣誉、技能与联系</strong>
-        <small>荣誉、语言、工具与联系方式。</small>
-      </button>
-    </div>
+    <div class="contents-grid"></div>
   </dialog>
 
   <div id="status" class="sr-only" aria-live="polite"></div>
@@ -1893,6 +1826,24 @@
         "(prefers-reduced-motion: reduce)"
       );
 
+      const summaries = ["教育、研究与项目概览。", "跨学科的学习基础。", "两篇发表于《艺术市场》的文章。", "159 本图录、研究视角与原文。", "共同发起的艺术社交平台概念。", "目标用户与四个产品模块。", "分阶段运营与商业模式构想。", "拍卖运营、数字研究与项目协调。", "荣誉、语言、工具与联系方式。"];
+      slides.forEach((slide, i) => {
+        const dot = document.createElement("button");
+        dot.dataset.step = i;
+        dot.setAttribute("aria-label", slide.dataset.title);
+        q(".progress-nav").append(dot);
+        const item = document.createElement("button");
+        item.dataset.step = i;
+        const number = document.createElement("span");
+        number.textContent = String(i + 1).padStart(2, "0");
+        const title = document.createElement("strong");
+        title.textContent = slide.dataset.title;
+        const summary = document.createElement("small");
+        summary.textContent = summaries[i];
+        item.append(number, title, summary);
+        q(".contents-grid").append(item);
+      });
+
       let current = 0;
       let reading = false;
       let reduced = prefersReduced.matches;
@@ -1905,12 +1856,14 @@
       // The camera pans, rotates and zooms between these positions.
       const poses = [
         [0, 0, 0],
-        [1440, -180, -7],
-        [2880, 140, 7],
-        [3050, 1360, -6],
-        [1530, 1410, 5],
-        [0, 1410, -7],
-        [-1430, 640, 5]
+        [1440, -100, -3],
+        [2880, 100, 3],
+        [3000, 1360, -3],
+        [1530, 1410, 2],
+        [0, 1410, -2],
+        [-1440, 1410, 2],
+        [-1440, 0, -3],
+        [-2880, 0, 2]
       ];
 
       const clamp = (n) => Math.min(
@@ -1937,7 +1890,7 @@
 
       function navigation() {
         q("#counter").textContent =
-          `${String(current + 1).padStart(2, "0")} / 07`;
+          `${String(current + 1).padStart(2, "0")} / ${String(slides.length).padStart(2, "0")}`;
 
         q("#chapterName").textContent = slides[current].dataset.title;
         q("#previous").disabled = current === 0;
@@ -1979,7 +1932,7 @@
         access();
       }
 
-      function goTo(value, focus = true) {
+      function goTo(value, focus = true, immediate = false) {
         const next = clamp(value);
         const previous = current;
         const from = getComputedStyle(world).transform;
@@ -2009,14 +1962,14 @@
 
           if (
             previous !== current &&
-            !reduced &&
+            !reduced && !immediate &&
             typeof world.animate === "function"
           ) {
             const a = poses[previous];
             const b = poses[current];
 
             const middle =
-              `scale(.63) ` +
+              `scale(.86) ` +
               `rotate(${-(a[2] + b[2]) / 2}deg) ` +
               `translate(${-(a[0] + b[0]) / 2}px, ` +
               `${-(a[1] + b[1]) / 2}px)`;
@@ -2028,7 +1981,7 @@
                 { transform: to }
               ],
               {
-                duration: innerWidth < 650 ? 1000 : 1400,
+                duration: innerWidth < 650 ? 520 : 760,
                 easing: "cubic-bezier(.5,0,.2,1)"
               }
             );
@@ -2040,9 +1993,11 @@
           heading.setAttribute("tabindex", "-1");
           heading.focus({ preventScroll: true });
         }
+        document.dispatchEvent(new CustomEvent("cv:chapter", {detail:{current,reading,changed:previous!==current}}));
       }
 
       function motion() {
+        document.dispatchEvent(new CustomEvent("cv:motion", {detail:{reduced}}));
         body.classList.toggle("reduced", reduced);
         q("#motion").setAttribute("aria-pressed", String(reduced));
 
@@ -2054,7 +2009,8 @@
 
         if (button) {
           if (contents.open) contents.close();
-          goTo(Number(button.dataset.step));
+          if (window.cvTransition) window.cvTransition(button, () => goTo(Number(button.dataset.step), true, true), () => goTo(Number(button.dataset.step)));
+          else goTo(Number(button.dataset.step));
         }
       });
 
@@ -2067,6 +2023,7 @@
       });
 
       q("#read").addEventListener("click", () => {
+        const readingTarget = current;
         reading = !reading;
 
         if (animation) animation.cancel();
@@ -2086,9 +2043,14 @@
 
         layout();
 
+        document.dispatchEvent(new CustomEvent("cv:mode", {detail:{reading}}));
+
         if (reading) {
           requestAnimationFrame(() => {
-            slides[current].scrollIntoView({ block: "start" });
+            slides[readingTarget].scrollIntoView({ block: "start", behavior: "instant" });
+            current = readingTarget;
+            access();
+            navigation();
           });
         } else {
           window.scrollTo(0, 0);
@@ -2224,6 +2186,7 @@
 
           current = distances.indexOf(Math.min(...distances));
           navigation();
+          access();
         });
       }, { passive: true });
 
@@ -2299,5 +2262,6 @@
       selectHouse("all");
     })();
   </script>
+  <script src="cv-enhancements.js"></script>
 </body>
 </html>
