@@ -1194,6 +1194,7 @@
     }
   </style>
   <link rel="stylesheet" href="cv-enhancements.css">
+  <link rel="stylesheet" href="cv-exhibition.css">
 </head>
 
 <body class="reading no-js">
@@ -1851,6 +1852,7 @@
       let resizeFrame = 0;
       let scrollFrame = 0;
       let touch = null;
+      let lastCounter = "";
 
       // Each chapter occupies a position on a shared canvas.
       // The camera pans, rotates and zooms between these positions.
@@ -1876,6 +1878,21 @@
         return `scale(1) rotate(${-r}deg) translate(${-x}px, ${-y}px)`;
       };
 
+      // One camera owner. Read the displayed pose before cancelling a journey,
+      // so repeated navigation continues from the exact visible position.
+      function cameraPose(transform) {
+        const m = new DOMMatrixReadOnly(transform === "none" ? undefined : transform);
+        const scale = Math.hypot(m.a, m.b) || 1;
+        return {
+          scale,
+          rotation: Math.atan2(m.b, m.a) * 180 / Math.PI,
+          x: (m.a * m.e + m.b * m.f) / (scale * scale),
+          y: (-m.b * m.e + m.a * m.f) / (scale * scale)
+        };
+      }
+      const cameraTransform = (p) =>
+        `scale(${p.scale}) rotate(${p.rotation}deg) translate(${p.x}px, ${p.y}px)`;
+
       function access() {
         slides.forEach((s, i) => {
           const inactive = !reading && i !== current;
@@ -1889,8 +1906,13 @@
       }
 
       function navigation() {
-        q("#counter").textContent =
-          `${String(current + 1).padStart(2, "0")} / ${String(slides.length).padStart(2, "0")}`;
+        const counter = `${String(current + 1).padStart(2, "0")} / ${String(slides.length).padStart(2, "0")}`;
+        if (lastCounter !== counter) {
+          q("#counter").textContent = counter;
+          document.dispatchEvent(new CustomEvent("cv:progress", {detail:{current}}));
+          lastCounter = counter;
+        }
+        q(".progress-nav").style.setProperty("--chapter-progress", (current + 1) / slides.length);
 
         q("#chapterName").textContent = slides[current].dataset.title;
         q("#previous").disabled = current === 0;
@@ -1932,10 +1954,12 @@
         access();
       }
 
-      function goTo(value, focus = true, immediate = false) {
+      function goTo(value, focus = true, immediate = false, writeHistory = true) {
         const next = clamp(value);
         const previous = current;
-        const from = getComputedStyle(world).transform;
+        if (next === current && animation) return;
+        const from = !reading ? cameraPose(getComputedStyle(world).transform) : null;
+        let duration = 0;
 
         if (animation) animation.cancel();
 
@@ -1944,14 +1968,19 @@
         navigation();
 
         try {
-          history.replaceState(null, "", `#${slides[current].id}`);
+          if (writeHistory) {
+            const hash = `#${slides[current].id}`;
+            if (location.hash !== hash) {
+              history[previous !== current ? "pushState" : "replaceState"](null, "", hash);
+            }
+          }
         } catch (_) {
           // Navigation still works if a local-file browser restricts history.
         }
 
         if (reading) {
           slides[current].scrollIntoView({
-            behavior: reduced ? "auto" : "smooth",
+            behavior: reduced || immediate ? "instant" : "smooth",
             block: "start"
           });
         } else {
@@ -1965,27 +1994,32 @@
             !reduced && !immediate &&
             typeof world.animate === "function"
           ) {
-            const a = poses[previous];
             const b = poses[current];
-
-            const middle =
-              `scale(.86) ` +
-              `rotate(${-(a[2] + b[2]) / 2}deg) ` +
-              `translate(${-(a[0] + b[0]) / 2}px, ` +
-              `${-(a[1] + b[1]) / 2}px)`;
-
+            const destination = {scale: 1, rotation: -b[2], x: -b[0], y: -b[1]};
+            const related = previous >= 4 && previous <= 6 && current >= 4 && current <= 6;
+            const distance = Math.hypot(destination.x - from.x, destination.y - from.y);
+            const wide = related ? .94 : Math.max(.76, .89 - distance / 45000);
+            duration = innerWidth < 820 ? 650 : 980;
+            const ease = "cubic-bezier(.22,1,.36,1)";
             animation = world.animate(
               [
-                { transform: from },
-                { transform: middle, offset: .44 },
-                { transform: to }
+                { transform: cameraTransform(from), offset: 0, easing: "ease-in-out" },
+                { transform: cameraTransform({...from, scale: Math.min(from.scale, wide)}), offset: .18, easing: "cubic-bezier(.45,0,.25,1)" },
+                { transform: cameraTransform({...destination, scale: wide}), offset: .76, easing: ease },
+                { transform: to, offset: 1 }
               ],
-              {
-                duration: innerWidth < 650 ? 520 : 760,
-                easing: "cubic-bezier(.5,0,.2,1)"
-              }
+              {duration, easing: "linear"}
             );
+            const journey = animation;
+            world.classList.add("camera-moving");
+            journey.finished.catch(() => {}).finally(() => {
+              if (animation === journey) {
+                animation = null;
+                world.classList.remove("camera-moving");
+              }
+            });
           }
+          if (!duration) world.classList.remove("camera-moving");
         }
 
         if (focus) {
@@ -1993,12 +2027,12 @@
           heading.setAttribute("tabindex", "-1");
           heading.focus({ preventScroll: true });
         }
-        document.dispatchEvent(new CustomEvent("cv:chapter", {detail:{current,reading,changed:previous!==current}}));
+        document.dispatchEvent(new CustomEvent("cv:chapter", {detail:{current,reading,changed:previous!==current,duration}}));
       }
 
       function motion() {
-        document.dispatchEvent(new CustomEvent("cv:motion", {detail:{reduced}}));
         body.classList.toggle("reduced", reduced);
+        document.dispatchEvent(new CustomEvent("cv:motion", {detail:{reduced}}));
         q("#motion").setAttribute("aria-pressed", String(reduced));
 
         if (animation) animation.cancel();
@@ -2094,7 +2128,7 @@
 
         if (
           e.target.closest(
-            "input, select, textarea, button, a, summary, [contenteditable]"
+            "input, select, textarea, button, a, summary, [contenteditable], [data-cv-interactive]"
           )
         ) return;
 
@@ -2125,7 +2159,7 @@
         if (
           reading ||
           e.touches.length !== 1 ||
-          e.target.closest("button,a,input,select,textarea,summary")
+          e.target.closest("button,a,input,select,textarea,summary,[data-cv-interactive]")
         ) return;
 
         touch = [
@@ -2168,7 +2202,7 @@
           (s) => `#${s.id}` === location.hash
         );
 
-        if (i >= 0) goTo(i, false);
+        if (i >= 0) goTo(i, false, false, false);
       });
 
       addEventListener("scroll", () => {
@@ -2184,9 +2218,14 @@
             (s) => Math.abs(s.getBoundingClientRect().top - edge)
           );
 
+          const previous = current;
           current = distances.indexOf(Math.min(...distances));
           navigation();
           access();
+          if (previous !== current) {
+            history.replaceState(null, "", `#${slides[current].id}`);
+            document.dispatchEvent(new CustomEvent("cv:chapter", {detail:{current,reading,changed:true,duration:0}}));
+          }
         });
       }, { passive: true });
 
@@ -2221,7 +2260,8 @@
 
         const [number, label, note] = houses[key];
 
-        q("#catalogueNumber").textContent = number;
+        if (window.cvSetCatalogueNumber) window.cvSetCatalogueNumber(Number(number));
+        else q("#catalogueNumber").textContent = number;
         q("#catalogueLabel").textContent = label;
         q("#catalogueNote").textContent = note;
 
@@ -2263,5 +2303,6 @@
     })();
   </script>
   <script src="cv-enhancements.js"></script>
+  <script src="cv-exhibition.js"></script>
 </body>
 </html>

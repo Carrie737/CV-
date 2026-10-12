@@ -1,4 +1,7 @@
-.exhibition{display:block;padding-bottom:160px;background:var(--paper)}
+.exhibition{display:block;overflow:hidden;padding-bottom:160px;background:#d8d8d0}
+.exhibition>#exhibition-webgl{position:absolute;z-index:0;inset:0;width:100%;height:100%;display:block;pointer-events:none;opacity:.72}
+.exhibition>*:not(#exhibition-webgl){position:relative;z-index:1}
+.exhibition-head,.exhibition-toolbar,.exhibition-footer{background:transparent}
 .exhibition-head{display:grid;grid-template-columns:1.2fr 1fr;gap:8vw;align-items:end;margin-bottom:65px}
 .exhibition-head h2{margin-bottom:15px}.exhibition-head .exhibition-name{font:italic clamp(30px,4vw,60px) Georgia,serif;color:var(--muted);margin:0}
 .exhibition-intro{max-width:400px;margin-left:auto}.exhibition-intro p{font-size:15px}.exhibition-intro .source{font-size:12px}
@@ -7,8 +10,13 @@
 .exhibition-filters button:after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--accent);transform:scaleX(0);transition:transform .45s var(--ease)}
 .exhibition-filters button[aria-pressed=true]{color:var(--accent)}.exhibition-filters button[aria-pressed=true]:after{transform:scaleX(1)}
 #exhibition-count{font:13px Georgia,'Microsoft YaHei',serif;white-space:nowrap;color:var(--muted)}
-.exhibition-grid{display:grid;grid-template-columns:1fr 1fr;gap:75px 7vw;align-items:start}
-.work-card{margin:0;min-width:0}.work-card[hidden]{display:none}.work-card:nth-child(even){padding-top:95px}
+.exhibition-grid{position:relative;overflow:hidden;margin:0 -5vw;padding:20px 5vw 35px;isolation:isolate}
+.exhibition-track{display:flex;align-items:stretch;gap:clamp(28px,4vw,70px);width:max-content;will-change:transform}
+.work-card{display:flex;flex:0 0 clamp(270px,28vw,390px);flex-direction:column;margin:0;min-width:0}
+.work-card[hidden]{display:none}
+.work-card:nth-child(even){padding-top:48px}
+.work-card:nth-child(even) figcaption{order:-1;padding-top:0;padding-bottom:24px}
+.work-card:nth-child(odd) figcaption{padding-top:24px}
 .work-image{display:flex;position:relative;width:100%;height:420px;align-items:center;justify-content:center;padding:28px;background:#dce0d6;overflow:hidden}
 .work-image img{display:block;max-width:100%;max-height:100%;object-fit:contain;box-shadow:0 12px 30px #273d3614;transition:transform 1.2s var(--ease),filter 1.2s var(--ease)}
 .work-index{position:absolute;top:9px;left:13px;font:italic 13px Georgia,serif;color:var(--muted)}
@@ -24,5 +32,9 @@
 .exhibition-dialog-bottom{display:flex;align-items:center;justify-content:space-between;margin-top:18px}.exhibition-dialog-bottom button{font-size:14px}.exhibition-dialog-bottom span{font:16px Georgia,serif}.is-zoomed #exhibition-image{max-width:none;max-height:none;width:160%;flex-shrink:0}.is-zoomed .exhibition-image-stage{display:block}
 @media(hover:hover){.work-image:hover img{transform:scale(1.045);filter:saturate(1.08)}.work-image:hover .work-open{transform:translateY(-4px)}.exhibition-filters button:hover:after{transform:scaleX(1)}.exhibition-entry a:hover{color:var(--accent)}}
 @media(max-width:900px){.work-image{height:330px;padding:22px}.exhibition-head{gap:35px}.exhibition-view{grid-template-columns:1.3fr 1fr}}
-@media(max-width:640px){.exhibition-head{display:block;margin-bottom:35px}.exhibition-intro{margin:30px 0 0;max-width:none}.exhibition-toolbar{gap:15px;margin-bottom:32px}.exhibition-filters{gap:16px}.exhibition-filters button{font-size:12px}.exhibition-grid{grid-template-columns:1fr;gap:45px}.work-card:nth-child(even){padding-top:0}.work-image{height:390px;max-height:65svh;padding:26px}.work-card figcaption{padding-top:18px}.exhibition-footer{margin-top:55px;display:block}.exhibition-footer .primary{margin-top:25px}#exhibition-dialog{padding:16px;max-height:92svh}.exhibition-view{display:block}.exhibition-image-stage{height:43svh}#exhibition-caption{padding-top:18px}#exhibition-caption h3{font-size:23px}.exhibition-dialog-top{gap:8px}.exhibition-dialog-top span{font-size:9px;letter-spacing:.04em}.exhibition-dialog-top button{padding:7px;font-size:12px}.exhibition-dialog-bottom{position:sticky;bottom:-16px;background:var(--paper);padding:8px 0;margin:0}.exhibition-dialog-bottom button{padding:8px}.exhibition{padding-bottom:120px}}
-@media print{.exhibition-grid{display:block}.work-card{break-inside:avoid;padding:0!important;margin-bottom:30px}.work-image{height:350px}.work-open,.exhibition-toolbar,.exhibition-footer{display:none}}
+@media(max-width:900px){.work-image{height:330px;padding:22px}.exhibition-head{gap:35px}.exhibition-view{grid-template-columns:1.3fr 1fr}.work-card{flex-basis:clamp(250px,36vw,330px)}}
+@media(max-width:640px){.exhibition-head{display:block;margin-bottom:35px}.exhibition-intro{margin:30px 0 0;max-width:none}.exhibition-toolbar{gap:15px;margin-bottom:32px}.exhibition-filters{gap:16px}.exhibition-filters button{font-size:12px}.exhibition-grid{margin:0 -7vw;padding:12px 7vw 28px}.exhibition-track{gap:24px}.work-card{flex-basis:min(78vw,330px)}.work-card:nth-child(even){padding-top:32px}.work-card:nth-child(even) figcaption{padding-bottom:18px}.work-card:nth-child(odd) figcaption{padding-top:18px}.work-image{height:390px;max-height:65svh;padding:26px}.exhibition-footer{margin-top:55px;display:block}.exhibition-footer .primary{margin-top:25px}#exhibition-dialog{padding:16px;max-height:92svh}.exhibition-view{display:block}.exhibition-image-stage{height:43svh}#exhibition-caption{padding-top:18px}#exhibition-caption h3{font-size:23px}.exhibition-dialog-top{gap:8px}.exhibition-dialog-top span{font-size:9px;letter-spacing:.04em}.exhibition-dialog-top button{padding:7px;font-size:12px}.exhibition-dialog-bottom{position:sticky;bottom:-16px;background:var(--paper);padding:8px 0;margin:0}.exhibition-dialog-bottom button{padding:8px}.exhibition{padding-bottom:120px}}
+@media print{.exhibition-grid{display:block}.exhibition-track{display:block}.work-card{break-inside:avoid;padding:0!important;margin-bottom:30px}.work-card:nth-child(even) figcaption{padding-top:24px;padding-bottom:0}.work-image{height:350px}.work-open,.exhibition-toolbar,.exhibition-footer{display:none}}
+@media(prefers-reduced-motion:reduce){.exhibition-track{transform:none!important}.work-image img{transition:none}}
+@media(max-width:640px){.exhibition>#exhibition-webgl{opacity:.58}}
+@media print{.exhibition>#exhibition-webgl{display:none}}

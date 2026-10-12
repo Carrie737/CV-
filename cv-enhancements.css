@@ -77,9 +77,60 @@ figcaption { font-size: 11px; color: var(--muted); line-height: 1.6; margin-top:
 .source-note { font-size: 12px; color: var(--muted); margin-top: 22px; }
 .source-note a { color: var(--blue); }
 .progress-nav button { width: 23px; }
-.scene.active [data-shared="project"] { view-transition-name: project-title; }
-::view-transition-old(root), ::view-transition-new(root) { animation-duration: .25s; }
-::view-transition-group(project-title) { animation-duration: .45s; animation-timing-function: cubic-bezier(.22,.61,.36,1); }
+/* The canvas camera is the only chapter transition; no root cross-fade. */
+#world.camera-moving { will-change: transform; }
+.hero-title .hero-name { display: flex; width: fit-content; }
+.hero-title .hero-name > span { display: inline-block; color: inherit; }
+.pointer-moving { will-change: transform; }
+.portrait-frame img { transform-origin: center; }
+.score-track span, .catalogue-bar { transform-origin: left center; }
+.catalogue-segment { transition: opacity .6s cubic-bezier(.22,1,.36,1), filter .3s ease; }
+#catalogueNumber { font-variant-numeric: tabular-nums; }
+@property --rule-progress {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 1;
+}
+.education-card { position: relative; border-top-color: transparent; }
+.education-card::before {
+  content: ''; position: absolute; inset: 0 0 auto; height: 1px;
+  background: var(--line); transform: scaleX(var(--rule-progress, 1)); transform-origin: left;
+}
+.project-card, .prototype-figure { transform-style: preserve-3d; }
+.project-card .project-role { display: inline-block; transform: translateZ(9px); }
+.project-card h3 { transform: translateZ(22px); }
+.project-card .project-pillars { transform: translateZ(14px); }
+.project-card .project-entry { transform: translateZ(7px); }
+.publication-card, .prototype-figure {
+  transition: border-color .3s ease, background-color .3s ease, box-shadow .35s ease;
+}
+.publication-link :is(a,button), .source-link, .primary-nav button, .text-button {
+  background-image: linear-gradient(var(--blue), var(--blue));
+  background-size: 0 1px; background-position: left bottom; background-repeat: no-repeat;
+  transition: background-size .35s cubic-bezier(.22,1,.36,1), border-color .3s ease, background-color .3s ease;
+}
+:is(.publication-link a, .publication-link button, .source-link, .primary-nav button, .text-button):is(:hover, :focus-visible) { background-size: 100% 1px; }
+.publication-link :is(a,button) > span, .source-link > span {
+  display: inline-block; transition: transform .3s cubic-bezier(.22,1,.36,1);
+}
+:is(.publication-link a, .publication-link button, .source-link):is(:hover, :focus-visible) > span { transform: translate(4px,-3px); }
+.toolbar button, .segmented button, .contents-grid button {
+  transition: background-color .25s ease, border-color .25s ease, color .25s ease;
+}
+.contents-grid button[aria-current] { border-color: var(--blue); background-color: var(--blue-light); }
+.progress-nav { position: relative; }
+.progress-nav::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
+  background: var(--sand); pointer-events: none; transform-origin: left;
+  transform: scaleX(var(--chapter-progress, .111111));
+  transition: transform .65s cubic-bezier(.22,1,.36,1);
+}
+.progress-nav button::before { transition: background-color .35s ease, transform .35s ease; }
+.progress-nav button[aria-current]::before { transform: scaleY(1.5); }
+.progress-nav button:is(:hover, :focus-visible)::before { background: var(--blue); }
+@media (max-width: 820px), (hover: none), (pointer: coarse) {
+  .project-card .project-role, .project-card h3, .project-card .project-pillars, .project-card .project-entry { transform: none; }
+}
 @media (hover: hover) and (pointer: fine) {
   .publication-grid:has(.publication-card:hover) .publication-card:not(:hover) { background: #f5f5f1; }
 }
@@ -133,6 +184,11 @@ figcaption { font-size: 11px; color: var(--muted); line-height: 1.6; margin-top:
   ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
 }
 .reduced ::view-transition-group(*), .reduced ::view-transition-old(*), .reduced ::view-transition-new(*) { animation: none !important; }
+.reduced .project-card .project-role, .reduced .project-card h3,
+.reduced .project-card .project-pillars, .reduced .project-card .project-entry { transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .project-card .project-role, .project-card h3, .project-card .project-pillars, .project-card .project-entry { transform: none; }
+}
 @media print {
   .research-tabs, .chapter-actions, .project-entry { display: none !important; }
   .research-panel[hidden] { display: block !important; }
@@ -142,4 +198,7 @@ figcaption { font-size: 11px; color: var(--muted); line-height: 1.6; margin-top:
   .portrait-frame { max-height: 330px; }
   .scene { break-inside: auto; }
   .image-reveal, .reveal-line > span { opacity: 1 !important; transform: none !important; clip-path: none !important; }
+  .motion-item, .pointer-moving, .project-card *, .prototype-figure, .portrait-frame img, .catalogue-bar, .score-track span { transform: none !important; opacity: 1 !important; clip-path: none !important; }
+  .education-card::before { transform: none !important; }
+  .progress-nav::after { display: none; }
 }

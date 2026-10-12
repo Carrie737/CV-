@@ -36,7 +36,30 @@
   const grid = document.querySelector('#exhibition-grid');
   const caption = (w) => `<p class="work-artist">Berthe Morisot · ${w.year}</p><h3>${w.title}</h3><p class="work-name">${w.name}</p><p class="work-material">${w.medium} · ${w.size}</p>${w.collection?`<p class="work-material">${w.collection}</p>`:''}${w.records.length ? `<details class="work-record"><summary>拍卖记录 <span>＋</span></summary>${w.records.map(r=>`<p>${r}</p>`).join('')}</details>`:''}${w.note?`<p class="work-note">${w.note}</p>`:''}`;
   document.querySelector('#exhibition-count').textContent=`${works.length} 件作品`;
-  grid.innerHTML = works.map((w,i)=>`<figure class="work-card" data-category="${w.category}"><button class="work-image" data-work="${i}" aria-label="放大欣赏《${w.title}》"><img src="assets/exhibition/${w.image}" alt="贝尔特·莫里索《${w.title}》，${w.year} 年" loading="lazy" decoding="async"><span class="work-index">${String(i+1).padStart(2,'0')}</span><span class="work-open">欣赏画作 ↗</span></button><figcaption>${caption(w)}</figcaption></figure>`).join('');
+  const cardMarkup = works.map((w,i)=>`<figure class="work-card" data-category="${w.category}"><button class="work-image" data-work="${i}" aria-label="放大欣赏《${w.title}》"><img src="assets/exhibition/${w.image}" alt="贝尔特·莫里索《${w.title}》，${w.year} 年" loading="lazy" decoding="async"><span class="work-index">${String(i+1).padStart(2,'0')}</span><span class="work-open">欣赏画作 ↗</span></button><figcaption>${caption(w)}</figcaption></figure>`).join('');
+  grid.innerHTML = `<div class="exhibition-track">${cardMarkup}${cardMarkup}</div>`;
+  const track = grid.querySelector('.exhibition-track');
+  const originalCards = [...track.children].slice(0, works.length);
+  [...track.children].slice(works.length).forEach(card=>card.setAttribute('aria-hidden','true'));
+  const motionReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let trackOffset = 0;
+  let lastFrame = performance.now();
+  let paused = motionReduced.matches;
+  const animateTrack = (now) => {
+    const cycleWidth = track.scrollWidth / 2;
+    if (!paused && cycleWidth > grid.clientWidth) {
+      trackOffset = (trackOffset + (now - lastFrame) * 0.055) % cycleWidth;
+      track.style.transform = `translate3d(${-trackOffset}px, 0, 0)`;
+    }
+    lastFrame = now;
+    requestAnimationFrame(animateTrack);
+  };
+  grid.addEventListener('mouseenter',()=>{paused=true});
+  grid.addEventListener('mouseleave',()=>{paused=motionReduced.matches});
+  grid.addEventListener('focusin',()=>{paused=true});
+  grid.addEventListener('focusout',e=>{if(!grid.contains(e.relatedTarget))paused=motionReduced.matches});
+  motionReduced.addEventListener?.('change',e=>{paused=e.matches});
+  requestAnimationFrame(animateTrack);
   const dialog=document.querySelector('#exhibition-dialog');
   let selected=0,opener=null,visible=works.map((_,i)=>i),zoomed=false;
   function show(index, direction = 0) {
@@ -55,11 +78,11 @@
   }
   grid.addEventListener('click',e=>{
     const b=e.target.closest('[data-work]');if(!b)return;
-    opener=b;show(Number(b.dataset.work));dialog.showModal();document.documentElement.style.overflow='hidden';
+    opener=b;show(Number(b.dataset.work));paused=true;dialog.showModal();document.documentElement.style.overflow='hidden';
   });
   document.querySelector('#exhibition-close').onclick=()=>dialog.close();
   dialog.addEventListener('click',e=>{if(e.target===dialog){if(window.SiteMotion)SiteMotion.closeDialog(dialog);else dialog.close()}});
-  dialog.addEventListener('close',()=>{document.documentElement.style.overflow='';opener?.focus({preventScroll:true})});
+  dialog.addEventListener('close',()=>{document.documentElement.style.overflow='';paused=motionReduced.matches;opener?.focus({preventScroll:true})});
   function step(delta){show(visible[(visible.indexOf(selected)+delta+visible.length)%visible.length],delta)}
   document.querySelector('#exhibition-prev').onclick=()=>step(-1);
   document.querySelector('#exhibition-next').onclick=()=>step(1);
@@ -75,12 +98,14 @@
   document.querySelectorAll('[data-filter]').forEach(button=>button.onclick=()=>{
     if(button.getAttribute('aria-pressed')==='true')return;
     const filter=button.dataset.filter;
-    const cards=[...grid.children],before=window.SiteMotion?.snapshot(cards);
+    const cards=[...track.children],before=window.SiteMotion?.snapshot(originalCards);
     document.querySelectorAll('[data-filter]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
     visible=[];
-    [...grid.children].forEach((card,i)=>{card.hidden=filter!=='all'&&card.dataset.category!==filter;if(!card.hidden)visible.push(i)});
+    cards.forEach((card,i)=>{card.hidden=filter!=='all'&&card.dataset.category!==filter;if(i<works.length&&!card.hidden)visible.push(i)});
     document.querySelector('#exhibition-count').textContent=`${String(visible.length).padStart(2,'0')} 件作品`;
-    if(before)window.SiteMotion.reflow(cards,before);
+    trackOffset=0;
+    track.style.transform='translate3d(0, 0, 0)';
+    if(before)window.SiteMotion.reflow(originalCards,before);
     window.ScrollTrigger?.refresh();
   });
 })();
